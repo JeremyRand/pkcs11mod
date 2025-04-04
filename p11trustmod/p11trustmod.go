@@ -236,7 +236,7 @@ func (s *session) objectsFromCertificates(candidateCertificates []*CertificateDa
 		})
 
 		if isTrusted {
-			if cert.TrustServerAuth || cert.TrustClientAuth || cert.TrustCodeSigning || cert.TrustEmailProtection {
+			if cert.TrustServerAuth != 0 || cert.TrustClientAuth != 0 || cert.TrustCodeSigning != 0 || cert.TrustEmailProtection != 0 {
 				candidateObjects = append(candidateObjects, &trustObject{
 					data: cert,
 				})
